@@ -1,2 +1,8 @@
 #!/bin/bash
-exec ~/slideshow.sh 2>&1 | ts '[%Y-%m-%d %H:%M:%S]' >> ~/slideshow.log
+while true
+do
+    ~/slideshow.sh
+    echo "Slideshow application crashed or exited. Rebooting..." >> ~/slideshow.log
+    sleep 5
+    sudo reboot now
+done
